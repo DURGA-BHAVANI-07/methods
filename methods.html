@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+  firstName: "John",
+  lastName: "Doe",
+};
+
+function greet(greeting, punctuation) {
+  console.log(`${greeting}, ${this.firstName} ${this.lastName}${punctuation}`);
+}
+greet.call(person, "Hello", "!");
+
+
+const pepole = {
+  firstName: "Jane",
+  lastName: "Doe",
+};
+function greet(greeting, punctuation) {
+  console.log(`${greeting}, ${this.firstName} ${this.lastName}${punctuation}`);
+}
+greet.apply(pepole, ["Hi", "?"]);
+
+
+const Names = {
+  firstName: "Alice",
+  lastName: "Smith",
+};
+function greet(greeting, punctuation) {
+  console.log(`${greeting}, ${this.firstName} ${this.lastName}${punctuation}`);
+}
+const greetAlice = greet.bind(Names);
+greetAlice("Hey", "!");
+
+
+
+let a={
+    name:"vamsi",
+    age:30,
+}
+let b={
+    name:"vamsi",
+    age:26,
+}
+function details(greet,exc){
+    console.log(`${greet} ${this.name} and ${this.age} ${exc}`);  
+}
+details.call(a,"hello","!")
+details.call(b,"hello","!")
+
+
+
+let a1={
+    name:"vamsi",
+    age:30,
+}
+let b2={
+    name:"vamsi",
+    age:26,
+}
+function details(greet,exc){
+    console.log(`${greet} ${this.name} and ${this.age} ${exc}`);  
+}
+details.call(a1,"hello","!")
+details.call(b2,"hello","!")
+
+
+function multiply(a, b) {
+  return a * b;
+}
+const double = multiply.bind(null, 2); 
+console.log(double(5)); 
+
+const triple = multiply.bind(null, 3); 
+console.log(triple(5)); 
+
+
+    </script>
+</body>
+</html>
